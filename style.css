@@ -1,66 +1,72 @@
 body {
-    font-size: 15pt;
-}
-/* Hero Section */
-.hero {
-  height: 100vh;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  padding: 0 20px;
+  font-family: system-ui, sans-serif;
+  background: #f8f9fa;
+  padding-top: 70px;
+  color: #222;
 }
 
+/* Hero */
+.hero {
+  height: 60vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 40px 20px;
+}
 .typing {
-  font-size:5vw;
-  font-weight: bold;
-  border-right: 3px solid white;
+  font-size: clamp(24px, 5vw, 42px);
+  font-weight: 800;
+  border-right: 3px solid rgba(255,255,255,0.8);
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
+  animation: typing 3.5s steps(30, end) forwards, blink 0.7s infinite;
+}
+.typing span { color: #ffd700; }
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Project Cards */
+.project-card {
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform .25s, box-shadow .25s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
-
-
-.typing span {
-  color: #ffd700;
-}
-
-/* Typing Animation */
-@keyframes typing {
-
-from { width: 0; }
-
-to { width: 100%; }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-a{
-  text-decoration: none;
-}
-/* Social Media Links */
+/* Social */
 .social-link {
-  font-size: 2rem;
-  color: white;
+  font-size: 1.5rem;
+  color: #fff;
   background: #2575fc;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 50px;
+  height: 50px;
+  display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  transition: all 0.3s ease;
+  transition: all .25s;
 }
-
 .social-link:hover {
   background: #ffd700;
-  color: #333;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-.typing {
-  width: 0;
-  animation: typing 4s steps(25, end) forwards, blink 0.7s infinite;
+  color: #111;
+  transform: translateY(-4px);
 }
 
+/* Back to top */
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  background: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 46px; height: 46px;
+  display: grid;
+  place-items: center;
+  opacity: 0; transform: translateY(40px);
+  transition: all .25s;
+}
+#backToTop.show { opacity: 1; transform: translateY(0); }
